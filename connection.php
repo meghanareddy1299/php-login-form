@@ -1,11 +1,11 @@
-<?php      
-    $host = "localhost";  
-    $user = "root";  
-    $password = '';  
-    $db_name = "meghana";  
-      
-    $con = mysqli_connect($host, $user, $password, $db_name);  
-    if(mysqli_connect_errno()) {  
-        die("Failed to connect with MySQL: ". mysqli_connect_error());  
-    }  
-?> 
+<?php
+    define('USER', 'root');
+    define('PASSWORD', '');
+    define('HOST', 'localhost');
+    define('DATABASE', 'meghana');
+    try {
+        $connection = new PDO("mysql:host=".HOST.";dbname=".DATABASE, USER, PASSWORD);
+    } catch (PDOException $e) {
+        exit("Error: " . $e->getMessage());
+    }
+?>
